@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="AzureBoxesChat.Views.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:AzureBoxesChat.Views"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="White">
+        <ProgressRing x:Name="prgBusy" />
+        <Grid Margin="10">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+
+            <Grid Grid.Row="0" Margin="0,0,0,0">
+                <StackPanel>
+                    <TextBlock Foreground="#0094ff" FontFamily="Segoe UI Light" Margin="0,0,0,6">CHAT USANDO MOBILE SERVICE</TextBlock>
+                    <TextBlock Foreground="Gray" FontFamily="Segoe UI Light" FontSize="45" >Chat Azure Boxes</TextBlock>
+                </StackPanel>
+            </Grid>
+
+            <Grid Grid.Row="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <StackPanel Grid.Row="0">
+                    <TextBlock Name="StatusMsg" Margin="5" FontSize="14">Inicializando el chat, por favor espere...</TextBlock>
+                    <TextBlock Name="TextUserName" Text="Ningún usuario ha iniciado la sesión." Grid.Column="0" FontSize="14" MinWidth="150" Margin="5"/>
+                </StackPanel>
+                <ListView Grid.Row="1" Name="ListItems" Margin="5" IsDoubleTapEnabled="False" IsHoldingEnabled="False" IsRightTapEnabled="False" IsTapEnabled="False" IsTabStop="True" TabIndex="0">
+                    <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <StackPanel HorizontalAlignment="Left">
+                                <TextBlock Name="ChatUser" Text="{Binding NombreUsuario}" Foreground="#0094ff" Margin="0,5,0,0" FontSize="14" TextWrapping="Wrap"/>
+                                <TextBlock Name="ChatLine" Text="{Binding Mensaje}" Foreground="Black" Margin="0,0,0,5" FontSize="14" TextWrapping="Wrap"/>
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListView.ItemTemplate>
+                </ListView>
+                <Grid Grid.Row="2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="Auto" />
+                    </Grid.ColumnDefinitions>
+                    <TextBox Grid.Column="0" Name="TextInput" IsEnabled="False" TextWrapping="Wrap" PlaceholderText="tú debes estar autenticado en este chat" MinWidth="150" Margin="5" KeyUp="ButtonSend_KeyUp"/>
+                    <AppBarButton Grid.Column="1" x:Name="btnWinSend" IsEnabled="False" Visibility="Collapsed" Label="enviar" Icon="Send" Click="ButtonSend_Click"/>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
+    <Page.BottomAppBar>
+        <CommandBar>
+            <AppBarButton Label="enviar" Icon="Send" Click="ButtonSend_Click"/>
+            <AppBarButton Label="actualizar" Icon="Refresh" Click="ButtonRefresh_Click"/>
+            <AppBarButton Label="feedback" Icon="Comment" Click="ButtonFeedback_Click"/>
+        </CommandBar>
+    </Page.BottomAppBar>
+</Page>

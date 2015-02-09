@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
+  <Identity Name="37820Wilsonvm.ChatAzureBoxes" Publisher="CN=38F966A1-7620-410F-96DE-05247D62431E" Version="1.1.0.1" />
+  <Properties>
+    <DisplayName>Chat Azure Boxes</DisplayName>
+    <PublisherDisplayName>Wilsonvm</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+  <Prerequisites>
+    <OSMinVersion>6.3.0</OSMinVersion>
+    <OSMaxVersionTested>6.3.0</OSMaxVersionTested>
+  </Prerequisites>
+  <Resources>
+    <Resource Language="x-generate" />
+  </Resources>
+  <Applications>
+    <Application Id="App" Executable="$targetnametoken$.exe" EntryPoint="AzureBoxesChat.Windows.App">
+      <m2:VisualElements DisplayName="Chat Azure Boxes" Square150x150Logo="Assets\Logo.png" Square30x30Logo="Assets\SmallLogo.png" Description="AzureBoxesChat.Windows" ForegroundText="light" BackgroundColor="#464646" ToastCapable="true">
+        <m2:SplashScreen Image="Assets\SplashScreen.png" />
+      </m2:VisualElements>
+    </Application>
+  </Applications>
+  <Capabilities>
+    <Capability Name="internetClient" />
+  </Capabilities>
+</Package>
